@@ -2,7 +2,7 @@ class Scene1 extends Phaser.Scene{
     constructor(){
         super("bootGame");
     }
-
+/*
     preload(){
         this.preload.image("background", "assets/images/background.png");
         this.preload.spritesheet("ship", "assets/spritesheets/ship.png",{
@@ -27,7 +27,7 @@ class Scene1 extends Phaser.Scene{
             frameHeight: 16
         })
     }
-
+*/
     create() {
         this.add.text(20, 20, "Loading game...");
         this.scene.start("playGame"); 

@@ -4,7 +4,7 @@ class Scene2 extends Phaser.Scene{
     }
 
     create() {
-
+/*
         this.background = this.add.tileSprite(0,0, config.width, config.height, "background");
         this,background.setOrigin(0,0);
 
@@ -90,8 +90,11 @@ class Scene2 extends Phaser.Scene{
 
         this.input.on('gameobjectdown', this.destroyShip, this);
 
-
-        this.add.text(20, 20, "Playing game", {font: "25px Arial", fill: "yellow"});
+*/
+        this.add.text(20, 20, "Playing game", {
+            font: "25px Arial",
+            fill: "yellow"
+        });
     }
 
     moveShip(ship, speed){
