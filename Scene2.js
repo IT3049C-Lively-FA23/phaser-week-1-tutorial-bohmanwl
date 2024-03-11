@@ -96,7 +96,7 @@ class Scene2 extends Phaser.Scene{
             fill: "yellow"
         });
     }
-
+/*
     moveShip(ship, speed){
         ship.y += speed;
         if(ship.y > config.height){
@@ -121,5 +121,5 @@ class Scene2 extends Phaser.Scene{
         this.moveShip(this.ship3, 1);
 
         this.background.tilePositionY -=0.5;
-    }
+    }*/
 }
