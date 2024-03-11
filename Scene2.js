@@ -12,55 +12,6 @@ class Scene2 extends Phaser.Scene{
         this.ship2 = this.add.sprite(config.width/2, config.height/2, "ship2");
         this.ship3 = this.add.sprite(config.width/2+50, config.height/2, "ship3");
 
-        this.anims.create({
-            key: "ship1_anim",
-            frames: this.anims.generateGrameNumbers("ship"),
-            frameRate: 20,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: "ship2_anim",
-            frames: this.anims.generateGrameNumbers("ship2"),
-            frameRate: 20,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: "ship3_anim",
-            frames: this.anims.generateGrameNumbers("ship3"),
-            frameRate: 20,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: "explode",
-            frames: this.anims.generateGrameNumbers("explosion"),
-            frameRate: 20,
-            repeat: 0,
-            hideOncomplete: true
-        })
-
-        this.anims.create({
-            key: "red",
-            frames: this.anims.generateFrameNumbers("power-up", {
-                start: 0,
-                end: 1
-            }),
-            frameRate: 20,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: "gray",
-            frames: this.anims.generateFrameNumbers("power-up", {
-                start: 2,
-                end: 3
-            }),
-            frameRate: 20,
-            repeat: -1
-        })
-
         this.powerUps = this.physics.add.group();
 
         var maxObjects = 4;
@@ -95,6 +46,13 @@ class Scene2 extends Phaser.Scene{
             font: "25px Arial",
             fill: "yellow"
         });
+
+        this.player = this.physics.add.sprite(config.width / 2- 8, config.height - 64, "player");
+        this.player.play("thurst");
+        this.cursorKeys = this.input.keyboard.createCursorKeys();
+        this.player.setCollideWorldBounds(true);
+
+        this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 
     moveShip(ship, speed){
@@ -121,5 +79,25 @@ class Scene2 extends Phaser.Scene{
         this.moveShip(this.ship3, 1);
 
         this.background.tilePositionY -=0.5;
+
+        this.movePlayerManager();
+    }
+
+    movePlayerManager(){
+        if(this.cursorKeys.left.isDown){
+            this.player.setVelocityX(-gameSettings.playerSpeed);
+        }else if(this.cursorKeys.right.isDown){
+            this.player.sethVelocityX(gameSettings.playerSpeed);
+        }
+
+        if(this.cursorKeys.up.isDown){
+            this.player.setVelocityY(-gameSettings.playerSpeed);
+        }else if(this.cursorKeys.down.isDown){
+            this.player.sethVelocityY(gameSettings.playerSpeed);
+        }
+
+        if(Phaser.Input.Keyboard.JustDown(this.spacebar)){
+            console.log("Fire!");
+        }
     }
 }
