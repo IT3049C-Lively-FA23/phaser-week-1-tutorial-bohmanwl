@@ -15,7 +15,7 @@ class Scene1 extends Phaser.Scene{
         });
         this.preload.spritesheet("ship3", "assets/spritesheets/ship3.png",{
             frameWidth: 32,
-            frameHeight:32,
+            frameHeight: 32,
         });
         this.preload.spritesheet("explosion", "assets/spritesheets/explosion.png",{
             frameWidth: 16,

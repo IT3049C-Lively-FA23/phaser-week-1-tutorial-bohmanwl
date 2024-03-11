@@ -14,6 +14,6 @@ window.onload=function(){
         }
     }
 
-	var game = new Phaser.Game();
+	var game = new Phaser.Game(config);
 
 }
